@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Spinner;
@@ -33,24 +34,29 @@ public class MainActivity extends Activity {
 		hour = (Spinner)findViewById(R.id.spinnerhour);
 		minute = (Spinner)findViewById(R.id.spinnerminute);
 		enable = (Switch)findViewById(R.id.open);
-		
-		Spinner sp = (Spinner) findViewById(R.id.spinner);
-		String[] stringArray = getResources()
-				.getStringArray(R.array.defaultNet);
-		ArrayList<String> mItems = new ArrayList<String>();
-		if (Config.defaultnet != null)
-			mItems.add(Config.defaultnet);
-		else {
-			for (String str : stringArray) {
-				mItems.add(str);
-			}
-		}
-		MyArrayAdapter adapter = new MyArrayAdapter(this,
-				android.R.layout.simple_spinner_item, mItems);
-		sp.setAdapter(adapter);
-		Handler handler = new Handler();
-		handler.postDelayed(add, 500);// delay 0.5s
 
+		String[] hourArray = getResources()
+				.getStringArray(R.array.hour);
+		ArrayList<String> hourItems = new ArrayList<String>();
+			for (String str : hourArray) {
+				hourItems.add(str);
+			}
+		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, hourItems);
+		hour.setAdapter(adapter1);
+		
+		
+		String[] minuteArray = getResources()
+				.getStringArray(R.array.minute);
+		ArrayList<String> minuteItems = new ArrayList<String>();
+			for (String str : minuteArray) {
+				minuteItems.add(str);
+			}
+		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, minuteItems);
+		minute.setAdapter(adapter2);
+		
+		
 		hour.setOnItemSelectedListener(new hourSeletedListener());
 		minute.setOnItemSelectedListener(new minuteSeletedListener());
          enable.setOnCheckedChangeListener(enabledListener);
