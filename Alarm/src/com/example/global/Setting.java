@@ -3,6 +3,7 @@ package com.example.global;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.util.Log;
 
 public class Setting {
 	
@@ -17,9 +18,9 @@ public class Setting {
 	
 	public static void getSetting(Context context){
 		SharedPreferences sp = context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE);
-		sp.getString(FLAG_HOUR, null);
-		sp.getString(FLAG_MINUTE, null);
-		sp.getBoolean(FLAG_ENABLE, false);
+		hour = sp.getString(FLAG_HOUR,"0");
+		minute = sp.getString(FLAG_MINUTE,"0");
+		enable = sp.getBoolean(FLAG_ENABLE, false);
 	}
 	
 	public static void saveSetting(Context context){

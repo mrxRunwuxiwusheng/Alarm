@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -26,6 +27,7 @@ public class MainActivity extends Activity {
 	private Spinner hour;
 	private Spinner minute;
 	private Switch enable;
+	private Intent mIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,36 +36,53 @@ public class MainActivity extends Activity {
 		hour = (Spinner)findViewById(R.id.spinnerhour);
 		minute = (Spinner)findViewById(R.id.spinnerminute);
 		enable = (Switch)findViewById(R.id.open);
+        Setting.getSetting(this);
 
-		String[] hourArray = getResources()
-				.getStringArray(R.array.hour);
+		String[] hourArray = getResources().getStringArray(R.array.hour);
 		ArrayList<String> hourItems = new ArrayList<String>();
-			for (String str : hourArray) {
-				hourItems.add(str);
-			}
+		for (String str : hourArray) {
+			hourItems.add(str);
+		}
+		int hourPosition = getIndex(Setting.hour,hourArray);
 		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, hourItems);
 		hour.setAdapter(adapter1);
+		hour.setSelection(hourPosition, true);//set the selection item same to last setting
 		
-		
-		String[] minuteArray = getResources()
-				.getStringArray(R.array.minute);
+		String[] minuteArray = getResources().getStringArray(R.array.minute);
 		ArrayList<String> minuteItems = new ArrayList<String>();
-			for (String str : minuteArray) {
-				minuteItems.add(str);
-			}
+		for (String str : minuteArray) {
+			minuteItems.add(str);
+		}
+		int minutePosition = getIndex(Setting.minute,minuteArray);
 		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, minuteItems);
 		minute.setAdapter(adapter2);
+		minute.setSelection(minutePosition, true);
 		
+		enable.setChecked(Setting.enable);
 		
 		hour.setOnItemSelectedListener(new hourSeletedListener());
 		minute.setOnItemSelectedListener(new minuteSeletedListener());
          enable.setOnCheckedChangeListener(enabledListener);
          
-         Setting.getSetting(this);
 	}
 
+	int getIndex(String s,String[] ss){
+		int index = 0;
+		for(String c:ss){
+			if(s.equals(c))
+				break;
+			index++;
+		}
+		return index;
+	}
+	
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -115,8 +134,11 @@ public class MainActivity extends Activity {
 			if(isChecked){
 				Log.d("Alarm", "isChecked = true");
 				DateTime DT = new DateTime();
-				startService(new Intent(MainActivity.this, MainService.class));
+				mIntent = new Intent(MainActivity.this, MainService.class);
+				startService(mIntent);
 			}
+			else
+				stopService(mIntent);
 		}
 		
 	};
