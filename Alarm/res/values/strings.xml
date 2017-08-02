@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Alarm</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="时间">时间</string>
+    <string name="时">时</string>
+    <string name="分">分</string>
+    <string name="h">hour</string>
+    <string name="m">minute</string>
+    <string name="open">open</string>
+    <string name="enable">闹铃控制按钮：</string>
+
+</resources>
