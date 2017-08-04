@@ -31,7 +31,8 @@ public class DateTime {
 			shorthour += 24;
 		else if (shorthour == 0 && shortminute < 0)
 			shorthour = 24;
-		shortTime = shorthour * 60 + shortminute;// unit is minute			
+		//shortTime = shorthour * 60 + shortminute;// unit is minute			
+		shortTime = (shorthour * 60 + shortminute)*60-SystemTime.second;// unit is second			
 		Log.d("Alarm", "calculateShortTime  shortTime=" + shortTime);
 		return shortTime;
 	}

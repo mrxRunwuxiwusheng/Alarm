@@ -26,14 +26,15 @@ public class MainService extends Service{
 		 Log.d("Alarm", "MainService　　onCreate");
     }
 
-	private boolean bellAfter(int minutes){
+	private boolean bellAfter(int seconds){
 		 Log.d("Alarm", "MainService　bellAfter");
 		 Handler bellHandler = new Handler();
-		 long delayMillis = minutes*60*1000;
+		 long delayMillis = seconds*1000;
 		 Log.d("Alarm", "Service bellAfter delayMillis="+delayMillis);
 		 Runnable bell = new Runnable(){
 				 public void run() {
-					 music.bell(MainService.this,mIntent);
+					 music ms=new music();
+					 ms.bell(MainService.this,mIntent);
 				 }
 			};
 		 bellHandler.postDelayed(bell, delayMillis);
@@ -45,7 +46,7 @@ public class MainService extends Service{
 		mIntent = intent;
 		Log.d("Alarm", "MainService　　onStart");
 		int shortTime = DateTime.calculateShortTime();
-		Toast.makeText(this, "闹铃设置成功，将会在"+shortTime/60+"小时"+(shortTime-shortTime/60*60)+"分钟后提醒您",Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "闹铃设置成功，将会在"+shortTime/3600+"小时"+(shortTime/60-shortTime/3600*60)+"分钟后提醒您",Toast.LENGTH_LONG).show();
 		bellAfter(shortTime);
     }
 	
