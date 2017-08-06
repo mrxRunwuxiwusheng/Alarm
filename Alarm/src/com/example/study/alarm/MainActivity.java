@@ -3,12 +3,14 @@ package com.example.study.alarm;
 import java.util.ArrayList;
 
 import com.example.global.DateTime;
+import com.example.global.Monitor;
 import com.example.global.Setting;
 import com.example.service.MainService;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.Log;
@@ -61,11 +63,16 @@ public class MainActivity extends Activity {
 		minute.setSelection(minutePosition, true);
 		
 		enable.setChecked(Setting.enable);
-		
+
 		hour.setOnItemSelectedListener(new hourSeletedListener());
 		minute.setOnItemSelectedListener(new minuteSeletedListener());
-         enable.setOnCheckedChangeListener(enabledListener);
-         
+		enable.setOnCheckedChangeListener(enabledListener);
+
+/*		if (monitor == null) {
+			monitor = new Monitor();
+			mIntent = new Intent(MainActivity.this, MainService.class);
+		//	startService(mIntent);
+		}*/
 	}
 
 	int getIndex(String s,String[] ss){
@@ -98,6 +105,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated method stub
 			Setting.hour = parent.getItemAtPosition(position).toString();
 			Setting.saveSetting(MainActivity.this);
+			Log.d("Alarm", "Setting.hour="+Setting.hour);
 		//	DT.sethour(parent.getItemAtPosition(position).toString());
 		}
 
@@ -116,6 +124,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated method stub
 			Setting.minute = parent.getItemAtPosition(position).toString();
 			Setting.saveSetting(MainActivity.this);
+			Log.d("Alarm", "Setting.minute="+Setting.minute);
 		}
 
 		@Override
@@ -133,14 +142,10 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated method stub
 			if(isChecked){
 				Log.d("Alarm", "isChecked = true");
-				DateTime DT = new DateTime();
 				mIntent = new Intent(MainActivity.this, MainService.class);
 				startService(mIntent);
 			}
-			else
-				stopService(mIntent);
 		}
-		
 	};
 	
 }
