@@ -35,6 +35,8 @@ public class MainService extends Service{
 	public void onStart(Intent intent, int startId) {
 		mIntent = intent;
 		Log.d("Alarm", "MainService　　onStart");
+	//	if(monitor==null)
+//			monitor = new Monitor();
 		monitor.onStartItem(MainService.this);
     }
 	

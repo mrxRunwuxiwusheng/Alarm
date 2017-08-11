@@ -20,6 +20,7 @@ public class Monitor {
 		DateTime DT = new DateTime();
 		int shortTime = DateTime.calculateShortTime();
 		Log.d("Alarm", "闹铃设置成功，将会在"+shortTime/3600+"时"+(shortTime/60-shortTime/3600*60)+"分后提醒您");
+		Toast.makeText(context, "闹铃设置成功，将会在"+shortTime/3600+"时"+(shortTime/60-shortTime/3600*60)+"分后提醒您",Toast.LENGTH_LONG).show();
 		bellAfter(shortTime,context);
 		return true;
 	}
