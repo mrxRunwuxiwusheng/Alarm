@@ -11,5 +11,7 @@
     <string name="m">minute</string>
     <string name="open">open</string>
     <string name="enable">闹铃控制按钮：</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="音乐">音乐：</string>
 
 </resources>
