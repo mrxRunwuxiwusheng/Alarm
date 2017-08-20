@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-import com.example.global.Setting;
 import com.example.service.MainService;
 
 import android.app.AlertDialog;
@@ -33,9 +32,11 @@ public class music {
 	private Intent mIntent;
 	private Context mContext;
 
-	public void achieveMusic() {
+	public void chooseMusic() {
 		Log.d("Alarm", "music   chooseMusic");
-		myUriStr = Setting.uri;
+
+		//myUriStr = "/sdcard/Music/alarms/Honor.mp3";sss.mp3
+		myUriStr = "/storage/emulated/0/Music/alarms/sss.mp3";
 		Uri uri = Uri.parse("file://" + myUriStr);
 		mMediaPlayer = MediaPlayer.create(mContext, uri);
 	}

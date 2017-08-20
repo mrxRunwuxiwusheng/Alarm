@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-     <string-array name="hour">
+   <!--   <string-array name="hour">
      <item>0</item>  
      <item>1</item>  
     <item>2</item>  
@@ -90,6 +90,28 @@
     <item>57</item>  
     <item>58</item>  
      <item>59</item>  
+    </string-array>
+     -->
+     
+     <string-array name="how_often">
+     <item>只响一次</item>  
+     <item>周一到周五</item>  
+    <item>每天</item>  
+    <item>自定义</item>    
+    </string-array>          
+    
+     <string-array name="music">
+     <item>无</item>   
+    </string-array>     
+    
+     <string-array name="周几">
+     <item>周一</item>  
+     <item>周二</item>  
+    <item>周三</item>  
+    <item>周四</item>    
+     <item>周五</item>  
+    <item>周六</item>  
+    <item>周日</item>    
     </string-array>
     
 </resources>

@@ -9,8 +9,102 @@ package com.example.study.alarm;
 
 public final class R {
     public static final class array {
-        public static final int hour=0x7f040000;
-        public static final int minute=0x7f040001;
+        /**    <string-array name="hour">
+     <item>0</item>  
+     <item>1</item>  
+    <item>2</item>  
+    <item>3</item>  
+    <item>4</item>  
+    <item>5</item>  
+    <item>6</item>  
+     <item>7</item>  
+    <item>8</item>  
+    <item>9</item>  
+     <item>10</item>  
+    <item>11</item>  
+    <item>12</item>  
+     <item>13</item>  
+    <item>14</item>  
+    <item>15</item>  
+    <item>16</item>  
+    <item>17</item>  
+    <item>18</item>  
+     <item>19</item>  
+    <item>20</item>  
+    <item>21</item>  
+     <item>22</item>  
+    <item>23</item>  
+    </string-array>
+    
+     
+     
+     <string-array name="minute">
+    <item>0</item>  
+     <item>1</item>  
+    <item>2</item>  
+    <item>3</item>  
+    <item>4</item>  
+    <item>5</item>  
+    <item>6</item>  
+     <item>7</item>  
+    <item>8</item>  
+    <item>9</item>  
+     <item>10</item>  
+    <item>11</item>  
+    <item>12</item>  
+     <item>13</item>  
+    <item>14</item>  
+    <item>15</item>  
+    <item>16</item>  
+    <item>17</item>  
+    <item>18</item>  
+     <item>19</item>  
+    <item>20</item>  
+    <item>21</item>  
+     <item>22</item>  
+    <item>23</item>  
+    <item>24</item>  
+    <item>25</item>  
+    <item>26</item>  
+    <item>27</item>  
+    <item>28</item>  
+     <item>29</item>  
+    <item>30</item>  
+     <item>31</item>  
+    <item>32</item>  
+    <item>33</item>  
+    <item>34</item>  
+    <item>35</item>  
+    <item>36</item>  
+     <item>37</item>  
+    <item>38</item>  
+    <item>39</item>  
+     <item>40</item>  
+    <item>41</item>  
+    <item>42</item>  
+     <item>43</item>  
+    <item>44</item>  
+    <item>45</item>  
+    <item>46</item>  
+    <item>47</item>  
+    <item>48</item>  
+     <item>49</item>  
+    <item>50</item>  
+    <item>51</item>  
+     <item>52</item>  
+    <item>53</item>  
+    <item>54</item>  
+    <item>55</item>  
+    <item>56</item>  
+    <item>57</item>  
+    <item>58</item>  
+     <item>59</item>  
+    </string-array>
+     
+         */
+        public static final int how_often=0x7f040000;
+        public static final int music=0x7f040001;
+        public static final int 周几=0x7f040002;
     }
     public static final class attr {
     }
@@ -30,16 +124,31 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int background=0x7f020000;
+        public static final int biao=0x7f020001;
+        public static final int fen=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int shi=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f090006;
-        public static final int h=0x7f090001;
-        public static final int listView1=0x7f090000;
-        public static final int m=0x7f090003;
-        public static final int open=0x7f090005;
-        public static final int spinnerhour=0x7f090002;
-        public static final int spinnerminute=0x7f090004;
+        public static final int action_settings=0x7f090011;
+        public static final int arrow_down=0x7f090008;
+        public static final int arrow_down1=0x7f090009;
+        public static final int arrow_up=0x7f090004;
+        public static final int how_often=0x7f09000c;
+        public static final int ll01=0x7f090002;
+        public static final int ll02=0x7f090006;
+        public static final int ll_time_wheel=0x7f090000;
+        public static final int musics=0x7f09000e;
+        public static final int name=0x7f09000f;
+        public static final int nameset=0x7f090010;
+        public static final int open=0x7f09000a;
+        public static final int repeat=0x7f09000b;
+        public static final int ring=0x7f09000d;
+        public static final int sv01=0x7f090001;
+        public static final int sv02=0x7f090005;
+        public static final int tv01=0x7f090003;
+        public static final int tv02=0x7f090007;
     }
     public static final class layout {
         public static final int activity_list=0x7f030000;
@@ -52,16 +161,18 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int enable=0x7f060009;
-        public static final int h=0x7f060006;
-        public static final int hello_world=0x7f060002;
-        public static final int m=0x7f060007;
-        public static final int open=0x7f060008;
-        public static final int title_activity_list=0x7f06000a;
-        public static final int 分=0x7f060005;
-        public static final int 时=0x7f060004;
-        public static final int 时间=0x7f060003;
-        public static final int 音乐=0x7f06000b;
+        public static final int enable=0x7f060008;
+        public static final int h=0x7f060005;
+        public static final int m=0x7f060006;
+        public static final int name=0x7f06000d;
+        public static final int open=0x7f060007;
+        public static final int repeat=0x7f06000b;
+        public static final int ring=0x7f06000c;
+        public static final int title_activity_list=0x7f060009;
+        public static final int 分=0x7f060004;
+        public static final int 时=0x7f060003;
+        public static final int 时间=0x7f060002;
+        public static final int 音乐=0x7f06000a;
     }
     public static final class style {
         /** 

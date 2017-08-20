@@ -34,7 +34,7 @@ public class Monitor {
 		 Runnable bell = new Runnable(){
 				 public void run() {
 					 music ms=new music();
-					 ms.achieveMusic();
+					 ms.chooseMusic();
 					 ms.onStart(mContext);
 				 }
 			};
